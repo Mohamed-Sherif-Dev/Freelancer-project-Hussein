@@ -1,0 +1,145 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+
+
+/* ===== Root Theme ===== */
+:root {
+  --background: 248 250 252;
+  --foreground: 15 23 42;
+
+  --card: 255 255 255;
+  --card-foreground: 15 23 42;
+
+  --popover: 255 255 255;
+  --popover-foreground: 15 23 42;
+
+  --primary: 37 99 235;
+  --primary-foreground: 255 255 255;
+
+  --secondary: 241 245 249;
+  --secondary-foreground: 15 23 42;
+
+  --muted: 241 245 249;
+  --muted-foreground: 100 116 139;
+
+  --accent: 241 245 249;
+  --accent-foreground: 15 23 42;
+
+  --destructive: 220 38 38;
+  --destructive-foreground: 255 255 255;
+
+  --border: 226 232 240;
+  --input: 226 232 240;
+  --ring: 37 99 235;
+
+  --radius: 0.75rem;
+}
+
+/* ===== Dark Mode (اختياري) ===== */
+.dark {
+  --background: 2 6 23;
+  --foreground: 248 250 252;
+
+  --card: 15 23 42;
+  --card-foreground: 248 250 252;
+
+  --popover: 15 23 42;
+  --popover-foreground: 248 250 252;
+
+  --primary: 59 130 246;
+  --primary-foreground: 2 6 23;
+
+  --secondary: 30 41 59;
+  --secondary-foreground: 248 250 252;
+
+  --muted: 30 41 59;
+  --muted-foreground: 148 163 184;
+
+  --accent: 30 41 59;
+  --accent-foreground: 248 250 252;
+
+  --destructive: 239 68 68;
+  --destructive-foreground: 248 250 252;
+
+  --border: 30 41 59;
+  --input: 30 41 59;
+  --ring: 59 130 246;
+}
+
+/* ===== Base Styles ===== */
+* {
+  border-color: rgb(var(--border));
+}
+
+body {
+  background-color: rgb(var(--background));
+  color: rgb(var(--foreground));
+}
+
+.bg-primary{
+  background-color: #2563EB !important;
+}
+
+
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  outline: none;
+  transition: 0.2s;
+}
+
+.input:focus {
+  border-color: black;
+}
+
+
+
+/* ===== PRINT MODE ===== */
+
+@media print {
+
+  /* اخفي كل حاجة */
+  body * {
+    visibility: hidden;
+  }
+
+  /* اظهر الفاتورة فقط */
+  #invoice-print,
+  #invoice-print * {
+    visibility: visible;
+  }
+
+  /* خلى الفاتورة في منتصف الصفحة */
+  #invoice-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 40px;
+    box-shadow: none !important;
+    background: white;
+  }
+
+  /* اخفاء ازرار التحكم */
+  .print-hidden {
+    display: none !important;
+  }
+
+  /* جدول انضف للطباعة */
+  table {
+    border-collapse: collapse;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+
+  th {
+    background: #f3f4f6;
+  }
+}
